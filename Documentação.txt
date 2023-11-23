@@ -1,0 +1,25 @@
+useState 
+ const [size, setSize] = useState(10)
+
+<Text style={styles.title}>{size} Caracteres</Text>      
+
+<Slider> value={size}
+    onValueChange={ (value)=> setSize(value.toFixed(0)) }
+    />
+</Slider> 
+
+
+
+lógica da geração de senha:
+function App() {
+  const [size, setSize] = useState(10)
+  const [passwordValue, setPasswordValue] = useState('')
+
+  function generatePassword() {
+    let password = "";
+    for(let i = 0, n = charset.length; i < size; i++) {
+      password += charset.charAt(Math.floor(Math.random() * n))
+    }
+
+    setPasswordValue(password)
+  }
