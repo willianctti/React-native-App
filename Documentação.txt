@@ -23,3 +23,48 @@ function App() {
 
     setPasswordValue(password)
   }
+
+
+
+
+
+
+				Navegação
+
+criei novas folders de pages com a home e a rota de passwords. 
+Criei também um arquivo de rotas com todas as rotas:
+
+import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { Home } from './pages/home'
+import { Passwords } from './pages/home/passwords'
+cont Tab = createBottomTabNavigator();
+export function Routes() {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen 
+            name='Home'
+            component={Home}
+            />
+
+            <Tab.Screen 
+            name='Passwords'
+            component={Passwords}
+            />
+
+        </Tab.Navigator>
+    )
+}
+
+
+e no nosso app utilizo o navigationCOntainer para gerenciar essas 
+rotas:
+import {NavigationContainer} from '@react-navigation/native'
+import { Routes } from './routes'
+
+export default function App() {
+    return (
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+  )
+}
